@@ -167,3 +167,147 @@ if (document.readyState === 'loading') {
 } else {
   setTimeout(initCanvasAnimation, 100);
 }
+
+// Load Three.js dynamically if not available
+function loadThreeJS(callback) {
+    if (typeof THREE !== 'undefined') {
+        callback();
+        return;
+    }
+    
+    console.log('📦 Loading Three.js library...');
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    script.onload = function() {
+        console.log('✅ Three.js loaded successfully');
+        callback();
+    };
+    script.onerror = function() {
+        console.error('❌ Failed to load Three.js');
+    };
+    document.head.appendChild(script);
+}
+
+// Three.js Smoke Background for About Section - Replace existing canvas animation
+function initAboutThreeBackground() {
+    console.log('🌟 Initializing Three.js smoke background...');
+    
+    loadThreeJS(function() {
+        // Get the existing canvas
+        const canvas = document.getElementById('c');
+        if (!canvas) {
+            console.error('Canvas #c not found');
+            setTimeout(initAboutThreeBackground, 500);
+            return;
+        }
+
+        console.log('✅ Canvas found and Three.js loaded');
+
+        // Clear any existing canvas content
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Create Three.js renderer using the existing canvas
+        const renderer = new THREE.WebGLRenderer({ 
+            canvas: canvas,
+            alpha: true, 
+            antialias: true 
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0); // Transparent background
+
+        // Create scene
+        const scene = new THREE.Scene();
+
+        // Create camera
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+        camera.position.z = 1000;
+
+        // Create lighting
+        const light = new THREE.DirectionalLight(0xffffff, 0.5);
+        light.position.set(-1, 0, 1);
+        scene.add(light);
+
+        // Create smoke material
+        const smokeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xff6b35,
+            transparent: true,
+            opacity: 0.8
+        });
+        
+        const smokeGeo = new THREE.PlaneGeometry(200, 200);
+        const smokeParticles = [];
+        
+        // Create smoke particles
+        for (let p = 0; p < 50; p++) {
+            const particle = new THREE.Mesh(smokeGeo, smokeMaterial);
+            particle.position.set(
+                Math.random() * 800 - 400,
+                Math.random() * 600 - 300,
+                Math.random() * 500 - 250
+            );
+            particle.rotation.z = Math.random() * Math.PI * 2;
+            scene.add(particle);
+            smokeParticles.push(particle);
+        }
+        
+        console.log('🔥 Created', smokeParticles.length, 'smoke particles');
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Animate particles
+            const time = Date.now() * 0.001;
+            smokeParticles.forEach((particle, i) => {
+                particle.rotation.z += 0.01;
+                particle.position.y += Math.sin(time + i) * 0.5;
+                particle.position.x += Math.cos(time * 0.7 + i) * 0.3;
+                
+                // Reset position if too far
+                if (particle.position.y > 400) {
+                    particle.position.y = -400;
+                    particle.position.x = Math.random() * 800 - 400;
+                }
+            });
+            
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+        console.log('🚀 Three.js animation started');
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    });
+}
+
+// Replace the existing canvas animation with Three.js
+setTimeout(() => {
+    initAboutThreeBackground();
+}, 1500);
+
+// Function to scroll to previous section
+function scrollToPreviousSection() {
+    // Get current section
+    const currentSection = document.getElementById('about-section');
+    
+    // Find the previous section in the sections array
+    const sections = ['hero', 'video', 'about', 'smoke'];
+    const currentIndex = sections.findIndex(section => section === 'about');
+    
+    if (currentIndex > 0) {
+        const previousSection = sections[currentIndex - 1];
+        
+        // Use the SectionLoader to navigate to previous section
+        if (window.sectionLoader) {
+            window.sectionLoader.loadSection(previousSection);
+        }
+    }
+}

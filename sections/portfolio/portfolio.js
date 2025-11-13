@@ -520,5 +520,12 @@ if (document.readyState === 'loading') {
 
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  new CircularSlider();
+  const slider = new CircularSlider();
+  
+  // Initialize Three.js background
+  setTimeout(() => {
+    if (typeof initThreeBackground === 'function') {
+      initThreeBackground();
+    }
+  }, 1500);
 });

@@ -7,21 +7,78 @@
   box-sizing: border-box;
 }
 
+/* Three.js Background Canvas */
+#portfolio-background canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .section-portfolio {
   font-family: "Poppins", sans-serif;
-  background: #fafafa;
-  min-height: 100vh;
+  background: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   user-select: none;
-  padding: 40px 20px;
+  padding: 60px 20px 40px 20px;
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% {
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+      #000;
+  }
+  50% {
+    background: 
+      radial-gradient(circle at 30% 70%, rgba(255, 107, 53, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 70% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 60%),
+      radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 60%),
+      #000;
+  }
+}
+
+/* CSS Animated Particles as fallback */
+.section-portfolio::before {
+  display: none;
+}
+
+.section-portfolio::after {
+  display: none;
+}
+
+@keyframes particlesFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-100px) translateX(50px);
+  }
+  66% {
+    transform: translateY(-50px) translateX(-30px);
+  }
+  100% {
+    transform: translateY(-200px) translateX(20px);
+  }
 }
 
 .header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 200;
 }
 
 .subtitle {
@@ -36,8 +93,18 @@
 .main-title {
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 900;
-  color: #0a0a0a;
+  color: #ffffff;
   line-height: 1.1;
+  text-shadow: 0 2px 15px rgba(255, 107, 53, 0.3);
+}
+
+.sub-description {
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 12px;
+  font-style: italic;
+  opacity: 0.9;
 }
 
 .slider-container {
@@ -47,6 +114,8 @@
   width: 100%;
   max-width: 1400px;
   overflow: hidden;
+  position: relative;
+  z-index: 200;
 }
 
 .slider-container.dragging {
@@ -64,11 +133,13 @@
 .card {
   flex-shrink: 0;
   width: 240px;
-  background: white;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1e1e1e 100%);
   overflow: hidden;
   transform-style: preserve-3d;
   position: relative;
   cursor: pointer;
+  border: 1px solid rgba(255, 107, 53, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .card::before {
@@ -118,7 +189,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -222,34 +293,152 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .section-portfolio {
-    padding: 20px 10px;
+    padding: 30px 15px;
   }
   
-  .header {
-    margin-bottom: 40px;
-  }
-  
-  .main-title {
-    font-size: clamp(28px, 7vw, 48px);
-  }
-  
-  .slider-track {
-    height: 500px;
+  .slider-container {
+    max-width: 90vw;
   }
   
   .card {
-    width: 200px;
+    width: 220px;
+  }
+  
+  .main-title {
+    font-size: clamp(32px, 6vw, 52px);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-portfolio {
+    padding: 20px 10px;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+      #000;
+  }
+  
+  .header {
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+  
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .main-title {
+    font-size: clamp(24px, 8vw, 36px);
+    line-height: 1.2;
+  }
+  
+  .sub-description {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  .slider-container {
+    max-width: 95vw;
+    overflow-x: hidden;
+  }
+  
+  .slider-track {
+    height: 400px;
+  }
+  
+  .card {
+    width: 180px;
+    height: auto;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+  
+  .card .hover-overlay span {
+    font-size: 14px;
   }
   
   .card-info {
-    bottom: 100px;
-    max-width: 90%;
-    width: 90%;
-    padding: 1.5rem;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 95%;
+    width: 95%;
+    padding: 1.2rem;
     min-width: unset;
   }
+  
+  .card-info h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  
+  .card-info p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .close-btn {
+    width: 35px;
+    height: 35px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .close-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-portfolio {
+    padding: 15px 5px;
+  }
+  
+  .header {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .main-title {
+    font-size: clamp(20px, 9vw, 28px);
+    padding: 0 5px;
+  }
+  
+  .slider-track {
+    height: 350px;
+  }
+  
+  .card {
+    width: 160px;
+  }
+  
+  .card img {
+    height: 220px;
+  }
+  
+  .card-info {
+    bottom: 60px;
+    padding: 1rem;
+    max-width: 98%;
+    width: 98%;
+  }
+  
+  .card-info h2 {
+    font-size: 20px;
+  }
+  
+  .card-info p {
+    font-size: 13px;
+  }
+}
   
   .card-info h2 {
     font-size: 28px;
@@ -268,4 +457,3 @@
     height: 50px;
     font-size: 20px;
   }
-}

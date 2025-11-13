@@ -1,0 +1,150 @@
+.section-smoke .action-container {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem auto 0 auto;
+}
+.section-smoke .btn {
+  position: relative;
+  width: 250px;
+  height: 50px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section-smoke .action-container .btn a {
+  transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s, background 0.18s, color 0.18s !important;
+}
+.section-smoke .action-container .btn:hover a {
+  transform: scale(1.07) !important;
+  box-shadow: 0 18px 32px 0 #ff6b35bb, 0 3px 16px 0 #ffb34799 !important;
+  cursor: pointer !important;
+}
+/* Modern CTA Button for Smoke Section */
+.section-smoke .action-container {
+  margin-top: 2.5rem;
+}
+.smoke-title {
+  margin-bottom: 2.2rem;
+}
+.svg-anim-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2.5rem 0 0.5rem 0;
+}
+.svg-anim-title {
+  width: min(90vw, 600px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 24px #ff6b3588) drop-shadow(0 0px 8px #ff6b3588);
+}
+.smoke-action-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+
+.smoke-title {
+  font-size: clamp(2.2rem, 8vw, 5.5rem);
+  font-weight: 900;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff6b35 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 24px #ff6b3588) drop-shadow(0 0px 8px #ff6b3588);
+  animation: smokeGlow 3s ease-in-out infinite alternate;
+  text-align: center;
+}
+@import url('../../scroll-buttons.css');
+
+.section-smoke * {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+.section-smoke {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-smoke canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.smoke-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  pointer-events: auto;
+}
+  pointer-events: auto;
+
+
+
+
+.smoke-svg-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+.smoke-svg-title svg {
+  width: min(90vw, 600px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 24px #ff6b3588) drop-shadow(0 0px 8px #ff6b3588);
+}
+.smoke-svg-title svg > * {
+  fill: #ff6b35;
+  stroke: #ff6b35;
+  stroke-width: 1.2px;
+  transition: fill 0.3s, stroke 0.3s;
+}
+.smoke-svg-title svg:hover > * {
+  fill: #fff;
+  stroke: #fff;
+}
+
+@keyframes smokeGlow {
+  0% {
+    filter: drop-shadow(0 2px 24px #00ffff88) drop-shadow(0 0px 8px #ff6b3588);
+  }
+  100% {
+    filter: drop-shadow(0 4px 40px #00ffffcc) drop-shadow(0 0px 16px #ff6b35cc);
+  }
+}
+
+.smoke-description {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@keyframes smokeGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.3); }
+}

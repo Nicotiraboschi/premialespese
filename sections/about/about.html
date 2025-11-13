@@ -1,4 +1,7 @@
 <div class="section-about" id="about-section">
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
   <canvas id="c"></canvas>
   <svg class="svg-container">
     <defs>
@@ -47,75 +50,86 @@
       </filter>
     </defs>
   </svg>
-<main class="main-container">
-  <div ↖️ class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-        <div ↖️ class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-
-    <div class="content-container">
-      <div class="content-top">
-        <p class="title">Luce</p>
+<div class="about-content-wrapper">
+  <div class="main-container">
+    <div class="cards-row">
+    <div ↖️ class="card-container">
+      <div class="inner-container">
+        <div class="border-outer">
+          <div ↖️ class="main-card"></div>
+        </div>
+        <div class="glow-layer-1"></div>
+        <div class="glow-layer-2"></div>
       </div>
 
-      <hr class="divider" />
+      <div class="overlay-1"></div>
+      <div class="overlay-2"></div>
+      <div class="background-glow"></div>
 
-      <div class="content-bottom">
-        <div class="price-info">
-          <div class="price-item">
-            <strong>Prezzo componente energia:</strong>
-            <span class="price-value">PUN +0,02€/kWh</span>
+      <div class="content-container">
+        <div class="content-top">
+          <p class="title">Luce</p>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="content-bottom">
+          <div class="price-info">
+            <div class="price-item">
+              <strong>Prezzo componente energia:</strong>
+              <span class="price-value">PUN +0,02€/kWh</span>
+            </div>
+            <div class="price-item">
+              <strong>Oneri commerciali:</strong>
+              <span class="price-value">11,50€ (*)</span>
+            </div>
           </div>
-          <div class="price-item">
-            <strong>Oneri commerciali:</strong>
-            <span class="price-value">11,50€ (*)</span>
+        </div>
+      </div>
+    </div>
+    
+    <div 🎨 class="card-container">
+      <div class="inner-container">
+        <div class="border-outer">
+          <div class="main-card"></div>
+        </div>
+        <div class="glow-layer-1"></div>
+        <div class="glow-layer-2"></div>
+      </div>
+
+      <div class="overlay-1"></div>
+      <div class="overlay-2"></div>
+      <div class="background-glow"></div>
+
+      <div class="content-container">
+        <div class="content-top">
+          <p class="title">Gas</p>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="content-bottom">
+          <div class="price-info">
+            <div class="price-item">
+              <strong>Prezzo materia prima:</strong>
+              <span class="price-value">PSV + α (0,12€/smc)</span>
+            </div>
+            <div class="price-item">
+              <strong>Componente fissa:</strong>
+              <span class="price-value">PFIX 11,50€</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   
-  <div 🎨 class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-        <div class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-
-    <div class="content-container">
-      <div class="content-top">
-        <p class="title">Gas</p>
-      </div>
-
-      <hr class="divider" />
-
-      <div class="content-bottom">
-        <div class="price-info">
-          <div class="price-item">
-            <strong>Prezzo materia prima:</strong>
-            <span class="price-value">PSV + α (0,12€/smc)</span>
-          </div>
-          <div class="price-item">
-            <strong>Componente fissa:</strong>
-            <span class="price-value">PFIX 11,50€</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Action Button -->
+  <div class="action-container">
+    <div class="btn"><a href="#smoke-section">Voglio Approfondire</a></div>
   </div>
-</main>
+  </div>
+  
+  <a href="#smoke-section" class="scroll-btn"><span></span></a>
+</div>
 </div>

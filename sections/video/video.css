@@ -22,13 +22,13 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: hsl(260deg 100% 3%);
+  background-color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Mona Sans", "Poppins", sans-serif;
   
-  --card-color: hsl(260deg 100% 3%);
+  --card-color: #000;
   --text-color: hsl(260deg 10% 55%);
   --card-radius: 3.6vw;
   --card-width: 50vw;
@@ -198,12 +198,108 @@
   100% { --hue: 360; }
 }
 
+@media (max-width: 1024px) {
+  .section-video { 
+    --card-width: 60vw; 
+    --card-radius: 4vw;
+    padding: 20px;
+  }
+}
+
 @media (max-width: 768px) {
-  .section-video { --card-width: 70vw; --card-radius: 5vw; }
+  .section-video { 
+    --card-width: 75vw; 
+    --card-radius: 5vw;
+    padding: 15px 10px;
+  }
+  
+  .video-card {
+    max-height: 85vh;
+    aspect-ratio: 9/16; /* Vertical aspect ratio for mobile */
+  }
+  
+  .card-content {
+    padding: 20px 15px;
+  }
+  
+  .video-container {
+    height: 60%;
+    aspect-ratio: 9/16; /* Make video container vertical */
+  }
+  
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: calc(var(--card-radius) * 0.7);
+  }
 }
 
 @media (max-width: 480px) {
-  .section-video { --card-width: 85vw; --card-radius: 6vw; }
-  .card-content { padding: 15px; }
-  .video-container { height: 65%; }
+  .section-video { 
+    --card-width: 90vw; 
+    --card-radius: 6vw;
+    padding: 10px 5px;
+  }
+  
+  .video-card {
+    max-height: 90vh;
+    aspect-ratio: 9/16; /* Vertical aspect ratio for small mobile */
+  }
+  
+  .card-content {
+    padding: 15px 10px;
+  }
+  
+  .video-container {
+    height: 65%;
+    aspect-ratio: 9/16; /* Vertical video container */
+  }
+  
+  .video-container iframe {
+    border-radius: calc(var(--card-radius) * 0.6);
+  }
+}
+
+@media (max-width: 320px) {
+  .section-video { 
+    --card-width: 95vw; 
+    --card-radius: 7vw;
+    padding: 5px;
+  }
+  
+  .video-card {
+    max-height: 85vh;
+    aspect-ratio: 9/16; /* Vertical aspect ratio for very small screens */
+  }
+  
+  .card-content { 
+    padding: 15px 12px;
+  }
+  
+  .video-container { 
+    height: 65%;
+    aspect-ratio: 9/16; /* Vertical video container */
+    margin-bottom: 10px;
+  }
+  
+  .video-container iframe {
+    border-radius: calc(var(--card-radius) * 0.6);
+  }
+}
+
+@media (max-width: 320px) {
+  .section-video { 
+    --card-width: 95vw; 
+    --card-radius: 7vw;
+  }
+  
+  .video-card {
+    min-height: 350px;
+    max-height: 75vh;
+  }
+  
+  .card-content {
+    padding: 12px 10px;
+  }
 }

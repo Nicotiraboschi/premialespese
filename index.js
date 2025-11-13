@@ -4,7 +4,8 @@ class SectionLoader {
       { name: 'hero', path: 'sections/hero/hero.html' },
       { name: 'video', path: 'sections/video/video.html' },
       { name: 'portfolio', path: 'sections/portfolio/portfolio.html' },
-      { name: 'about', path: 'sections/about/about.html' }
+      { name: 'about', path: 'sections/about/about.html' },
+      { name: 'smoke', path: 'sections/smoke/smoke.html' }
     ];
     this.loadedScripts = new Set();
     this.loadedStyles = new Set();
@@ -179,5 +180,21 @@ document.addEventListener('DOMContentLoaded', () => {
 window.goToSection = function(sectionName) {
   if (window.sectionLoader) {
     window.sectionLoader.scrollToSection(sectionName);
+  }
+};
+
+// Function to scroll to previous section
+window.scrollToPreviousSection = function(currentSection) {
+  // Define the section navigation flow
+  const sectionFlow = {
+    'video': 'hero',
+    'about': 'video', 
+    'smoke': 'about'
+  };
+  
+  const previousSection = sectionFlow[currentSection];
+  
+  if (previousSection && window.sectionLoader) {
+    window.sectionLoader.scrollToSection(previousSection);
   }
 };

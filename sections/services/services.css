@@ -235,9 +235,36 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .section-services {
+    padding: 60px 15px;
+  }
+  
   .services-content h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-services {
+    padding: 40px 10px;
+    overflow-x: hidden;
+  }
+  
+  .services-content h2 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  .services-subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    margin-bottom: 3rem;
+    padding: 0 10px;
   }
   
   .services-grid {
@@ -247,25 +274,71 @@
   
   .service-card {
     padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .service-card h3 {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+  
+  .service-card p {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    line-height: 1.6;
   }
   
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
   
   .cta-button {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    padding: 12px 20px;
+    font-size: clamp(0.9rem, 4vw, 1rem);
   }
 }
 
 @media (max-width: 480px) {
-  .services-content h2 {
-    font-size: 2rem;
+  .section-services {
+    padding: 30px 8px;
   }
   
+  .services-content h2 {
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+  }
+  
+  .services-subtitle {
+    font-size: clamp(0.9rem, 4.5vw, 1.1rem);
+    margin-bottom: 2.5rem;
+  }
+  
+  .services-grid {
+    gap: 1.2rem;
+  }
+  
+  .service-card {
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  .cta-button {
+    max-width: 100%;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 320px) {
   .section-services {
-    padding: 60px 15px;
+    padding: 25px 5px;
+  }
+  
+  .services-content h2 {
+    font-size: clamp(1.5rem, 8vw, 1.8rem);
+  }
+  
+  .service-card {
+    padding: 1rem;
   }
 }
