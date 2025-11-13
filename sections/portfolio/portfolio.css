@@ -91,7 +91,7 @@
 }
 
 .main-title {
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(48px, 7vw, 72px);
   font-weight: 900;
   color: #ffffff;
   line-height: 1.1;
@@ -100,7 +100,7 @@
 
 .sub-description {
   color: #cccccc;
-  font-size: 16px;
+  font-size: 1.5em;
   font-weight: 400;
   margin-top: 12px;
   font-style: italic;
@@ -204,7 +204,7 @@
 
 .card .hover-overlay span {
   color: white;
-  font-size: 16px;
+  font-size: 1.3em;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -336,7 +336,7 @@
   }
   
   .sub-description {
-    font-size: 14px;
+      font-size: 1.1em;
     margin-top: 8px;
   }
   
@@ -410,6 +410,10 @@
   .main-title {
     font-size: clamp(20px, 9vw, 28px);
     padding: 0 5px;
+  }
+
+  .sub-description {
+    font-size: 1.7em;
   }
   
   .slider-track {

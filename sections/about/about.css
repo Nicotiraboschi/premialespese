@@ -127,8 +127,8 @@
 
 
 .main-card {
-  width: 22rem;
-  aspect-ratio: 3 / 3.2;
+  width: 28rem;
+  aspect-ratio: 3 / 3.6;
   border-radius: 1.5em;
   border: 2px solid var(--electric-border-color);
   margin-top: -4px;
@@ -274,7 +274,7 @@
 
 /* Typography */
 .title {
-  font-size: 2.5em;
+  font-size: 3.8em;
   font-weight: 600;
   margin: 0;
   background: linear-gradient(135deg, var(--electric-border-color), var(--electric-light-color));
@@ -288,7 +288,7 @@
 .description {
   opacity: 0.85;
   line-height: 1.6;
-  font-size: 1.1em;
+  font-size: 1.6em;
 }
 
 /* Stili per le informazioni delle offerte */
@@ -327,7 +327,7 @@
 }
 
 .price-value {
-  font-size: 1.1em;
+  font-size: 1.6em;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 15px var(--electric-border-color);
@@ -511,13 +511,15 @@
   }
   
   .main-card {
-    width: 20rem;
+    width: 24rem;
   }
 }
 
 @media (max-width: 768px) {
   .section-about {
     padding: 0;
+    min-height: 130vh;
+    height: 130vh;
   }
   
   .main-container {
@@ -531,8 +533,8 @@
   }
   
   .main-card {
-    width: min(18rem, 90vw);
-    max-width: 400px;
+    width: min(22rem, 95vw);
+    max-width: 480px;
   }
   
   .content-top {
@@ -577,8 +579,8 @@
   }
   
   .main-card {
-    width: min(16rem, 85vw);
-    max-width: 350px;
+    width: min(18rem, 95vw);
+    max-width: 380px;
   }
   
   .content-top {
@@ -619,8 +621,8 @@
   }
   
   .main-card {
-    width: min(14rem, 90vw);
-    max-width: 300px;
+    width: min(15rem, 98vw);
+    max-width: 320px;
   }
   
   .content-top {
