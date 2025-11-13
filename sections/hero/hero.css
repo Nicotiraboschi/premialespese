@@ -1,0 +1,103 @@
+/* Stili specifici per la sezione Hero */
+.section-hero {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  position: relative;
+}
+
+/* Font Cookie per elementi decorativi */
+.cookie-regular {
+  font-family: "Cookie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  font-family: "Montserrat", serif;
+  position: relative;
+}
+
+#app a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+  font-family: sans-serif;
+    font-family: cursive
+
+}
+
+h2, p {
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  line-height: 100%;
+  user-select: none;
+}
+
+h1 {
+  font-size: 15rem;
+  font-family: sans-serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 100%;
+  user-select: none;
+  background: linear-gradient(90deg, #9E2053, orange, #111626, pink, #571B3D, #9E2053);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation-name: colorAnimation;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes colorAnimation {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+h2 {
+  font-size: 10rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+a {
+  font-size: 5rem ;
+}
