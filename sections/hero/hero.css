@@ -1,3 +1,47 @@
+@media (min-width: 769px) {
+  .desktop-space {
+    display: inline;
+  }
+}
+@media (max-width: 768px) {
+  .desktop-space {
+    display: none;
+  }
+}
+/* Mobile: suddivisione in più linee e font più grandi solo su mobile */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(4.5rem, 20vw, 6.5rem);
+    line-height: 1.05;
+    text-align: center;
+    word-break: break-word;
+    hyphens: auto;
+    margin-bottom: 0.5em;
+  }
+  .hero-cta {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    line-height: 1.1;
+    text-align: center;
+    display: inline-block;
+    margin-top: 0.5em;
+  }
+  .mobile-break {
+    display: inline;
+  }
+}
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(3.2rem, 22vw, 5.2rem);
+  }
+  .hero-cta {
+    font-size: clamp(2rem, 12vw, 3.2rem);
+  }
+}
+@media (min-width: 769px) {
+  .mobile-break {
+    display: none;
+  }
+}
 /* Stili specifici per la sezione Hero */
 .section-hero {
   width: 100%;

@@ -167,9 +167,34 @@ window.addEventListener('load', () => {
 });
 
 // Inizializza quando il DOM è pronto
+
 document.addEventListener('DOMContentLoaded', () => {
   window.scrollTo(0, 0);
   window.sectionLoader = new SectionLoader();
+
+  // Aggiorna href dei bottoni dinamici dopo che le sezioni sono caricate
+  setTimeout(() => {
+    function getQueryFromPath() {
+      // Se c'è una query string (?qualcosa), usa quella per test locale
+      var search = window.location.search.replace(/^\?/, '');
+      if (search) return search;
+      var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      return path ? path : 'nico';
+    }
+    function handleBtnClick(e) {
+      var query = getQueryFromPath();
+      var url = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+      this.href = url;
+    }
+    var portfolioBtn = document.getElementById('portfolio-link');
+    var heroBtn = document.getElementById('hero-link');
+    if (portfolioBtn) {
+      portfolioBtn.addEventListener('click', handleBtnClick);
+    }
+    if (heroBtn) {
+      heroBtn.addEventListener('click', handleBtnClick);
+    }
+  }, 1000); // attende che le sezioni siano nel DOM
 });
 
 // Funzione helper per navigazione
