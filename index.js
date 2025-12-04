@@ -4,8 +4,6 @@ class SectionLoader {
       { name: 'hero', path: 'sections/hero/hero.html' },
       { name: 'video', path: 'sections/video/video.html' },
       { name: 'portfolio', path: 'sections/portfolio/portfolio.html' },
-      { name: 'about', path: 'sections/about/about.html' },
-      { name: 'smoke', path: 'sections/smoke/smoke.html' }
     ];
     this.loadedScripts = new Set();
     this.loadedStyles = new Set();
@@ -19,7 +17,7 @@ class SectionLoader {
     const container = document.getElementById('main-container');
     
     // Mostra loading indicator
-    this.showLoading(container);
+    // this.showLoading(container);
     
     try {
       for (const section of this.sections) {
