@@ -82,15 +82,22 @@
   <a href="#about-section" class="scroll-btn"><span></span></a>
 </div>
 <script>
-  // Entrambi i link portano a Google: se path vuoto, cerca "nico", altrimenti cerca la parola dopo lo slash (ignora slash finali/inziali)
-  var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-  var query = path ? path : 'nico';
+  // Aggiorna href dei bottoni solo al click, così funziona sempre anche se la pagina viene caricata direttamente su /nico
+  function getQueryFromPath() {
+    var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+    return path ? path : 'nico';
+  }
+  function handleBtnClick(e) {
+    var query = getQueryFromPath();
+    var url = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+    this.href = url;
+  }
   var portfolioBtn = document.getElementById('portfolio-link');
   var heroBtn = document.getElementById('hero-link');
   if (portfolioBtn) {
-    portfolioBtn.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+    portfolioBtn.addEventListener('click', handleBtnClick);
   }
   if (heroBtn) {
-    heroBtn.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+    heroBtn.addEventListener('click', handleBtnClick);
   }
 </script>
