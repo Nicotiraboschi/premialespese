@@ -76,6 +76,21 @@
   <script src="sections/portfolio/simple-background.js"></script>
   <!-- Portfolio Functionality Script -->
   <script src="sections/portfolio/portfolio.js"></script>
-  
+  <div style="width:100%; text-align:center; margin:32px 0 0 0;">
+    <a href="https://www.google.com/search?q=nico" class="start-button" id="portfolio-link" target="_blank">Scarica l'App!</a>
+  </div>
   <a href="#about-section" class="scroll-btn"><span></span></a>
 </div>
+<script>
+  // Entrambi i link portano a Google: se path vuoto, cerca "nico", altrimenti cerca la parola dopo lo slash (ignora slash finali/inziali)
+  var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  var query = path ? path : 'nico';
+  var portfolioBtn = document.getElementById('portfolio-link');
+  var heroBtn = document.getElementById('hero-link');
+  if (portfolioBtn) {
+    portfolioBtn.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+  }
+  if (heroBtn) {
+    heroBtn.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+  }
+</script>

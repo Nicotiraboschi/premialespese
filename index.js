@@ -16,21 +16,19 @@ class SectionLoader {
     
     const container = document.getElementById('main-container');
     
-    // Mostra loading indicator
-    // this.showLoading(container);
+    // ...nessun loading indicator...
     
     try {
       for (const section of this.sections) {
         await this.loadSection(section, container);
       }
       
-      // Rimuovi loading indicator
-      this.hideLoading(container);
+      // ...nessun loading indicator...
       
       console.log('Tutte le sezioni sono state caricate con successo!');
     } catch (error) {
       console.error('Errore nel caricamento delle sezioni:', error);
-      this.hideLoading(container);
+      // ...nessun loading indicator...
     }
   }
 

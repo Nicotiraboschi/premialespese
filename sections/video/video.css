@@ -47,7 +47,7 @@
 
 .video-card {
   width: var(--card-width);
-  width: min(800px, var(--card-width));
+  width: 60vw;
   aspect-ratio: 16/10;
   color: white;
   margin: auto;
@@ -109,25 +109,27 @@
   font-weight: 900;
 }
 
-.start-button {
+ .start-button {
   display: inline-block;
-  margin-top: 5px;
-  padding: 12px 30px;
-  background: linear-gradient(135deg, #f967fb, #53bc28);
-  color: white;
+  margin: 0 auto;
+  padding: 8px 22px;
+  background: linear-gradient(90deg, #f967fb 0%, #53bc28 100%);
+  color: #fff;
   text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 16px;
+  border-radius: 24px;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(249, 103, 251, 0.3);
+  text-align: center;
+  box-shadow: 0 0 12px 2px #f967fb60, 0 0 12px 2px #53bc2860;
+  transition: box-shadow 0.3s, transform 0.2s, background 0.3s;
 }
 
 .start-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(249, 103, 251, 0.4);
-  background: linear-gradient(135deg, #ff6bff, #5dd62f);
+  transform: scale(1.06) translateY(-1px);
+  box-shadow: 0 0 24px 6px #f967fb99, 0 0 24px 6px #53bc2899;
+  background: linear-gradient(90deg, #ff6bff 0%, #5dd62f 100%);
 }
 
 .card-content:before {
